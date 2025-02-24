@@ -2,6 +2,7 @@
 
 from commands.echo_cmd import EchoCommand
 from commands.help_cmd import HelpCommand
+from commands.ls_cmd import LsCommand
 from utils.parser import parser_cmd
 
 
@@ -9,6 +10,7 @@ class PyShell:
     def __init__(self):
         self.commands = {
             "echo": EchoCommand(),
+            "ls": LsCommand(),
             "help": HelpCommand(self),
         }
 
