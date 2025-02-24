@@ -1,4 +1,5 @@
 import os
+import shutil
 from commands.ibase_cmd import BaseCommand
 
 
@@ -8,7 +9,8 @@ class LsCommand(BaseCommand):
 
         try:
             contents = os.listdir(path)
-            print("\n".join(contents))
+            visible_contents = [item for item in contents if not item.startswith(".")]
+            self.print_multi_line(visible_contents)
         except FileNotFoundError:
             print(f"Directory not found: {path}")
         except PermissionError:
@@ -18,3 +20,20 @@ class LsCommand(BaseCommand):
 
     def help(self):
         return "ls [path] --> Lists the contents of the specified directory/current directory"
+
+    def print_multi_line(self, contents):
+
+        terminal_width = shutil.get_terminal_size().columns
+
+        current_line_length = 0
+        for item in contents:
+            item_length = len(item) + 2
+
+            if current_line_length + item_length > terminal_width:
+                print()
+                current_line_length = 0
+
+            print(item, end=" ")
+            current_line_length += item_length
+
+        print()
