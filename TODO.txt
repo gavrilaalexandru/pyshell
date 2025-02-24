@@ -1,3 +1,4 @@
 # add new commands automatically into the dictionary
 # command history with up and down arrows
-# next command to be implemented is ls
+# n̶̶e̶̶x̶̶t̶̶ c̶̶o̶̶m̶̶m̶̶a̶̶n̶̶d̶̶ t̶̶o̶̶ b̶̶e̶̶ i̶̶m̶̶p̶̶l̶̶e̶̶m̶̶e̶̶n̶̶t̶̶e̶̶d̶̶ i̶̶s̶̶ l̶̶s̶̶
+# polish ls
