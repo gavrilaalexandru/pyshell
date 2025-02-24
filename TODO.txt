@@ -1,0 +1,3 @@
+# add new commands automatically into the dictionary
+# command history with up and down arrows
+# next command to be implemented is ls
