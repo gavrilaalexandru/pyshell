@@ -1,12 +1,16 @@
 # main implementation of the shell
 
 from commands.echo_cmd import EchoCommand
+from commands.help_cmd import HelpCommand
 from utils.parser import parser_cmd
 
 
 class PyShell:
     def __init__(self):
-        self.commands = {"echo": EchoCommand()}
+        self.commands = {
+            "echo": EchoCommand(),
+            "help": HelpCommand(self),
+        }
 
     def run(self):
         while True:
@@ -22,10 +26,10 @@ class PyShell:
                 else:
                     print(f"Command not found: {command_name}")
             except KeyboardInterrupt:
-                print("\n Exiting PyShell...")
+                print("\nExiting PyShell...")
                 break
             except Exception as e:
-                print(f"\nError: {e}")
+                print(f"Error: {e}")
 
 
 if __name__ == "__main__":
