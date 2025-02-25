@@ -5,3 +5,5 @@
 # make ls able to search in different dirs
 # make ls scale with the terminal
 # next command to be implemented is pwd
+# implement clear command
+# implement history
