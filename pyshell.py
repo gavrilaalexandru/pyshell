@@ -5,6 +5,7 @@ from commands.help_cmd import HelpCommand
 from commands.ls_cmd import LsCommand
 from commands.pwd_cmd import PwdCommand
 from commands.clear_cmd import ClearCommand
+from commands.history_cmd import HistoryCommand
 from utils.parser import parser_cmd
 
 
@@ -16,7 +17,9 @@ class PyShell:
             "pwd": PwdCommand(),
             "clear": ClearCommand(),
             "help": HelpCommand(self),
+            "history": HistoryCommand(),
         }
+        self.history_cmd = self.commands["history"]
 
     def run(self):
         while True:
@@ -24,6 +27,8 @@ class PyShell:
                 user_input = input("pyshell> ").strip()
                 if not user_input:
                     continue
+
+                self.history_cmd.add_command(user_input)
 
                 command_name, args = parser_cmd(user_input)
 
