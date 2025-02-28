@@ -3,7 +3,7 @@
 from commands.ibase_cmd import BaseCommand
 
 
-class HelpCommand:
+class HelpCommand(BaseCommand):
     def __init__(self, shell):
         self.shell = shell
 
@@ -20,4 +20,4 @@ class HelpCommand:
                 print(f" - {command_name}")
 
     def help(self):
-        return "help [command] ---> Displays information about available commands"
+        return "help [command] --> Displays information about available commands"
