@@ -8,7 +8,10 @@ class HistoryCommand(BaseCommand):
         self._load_history()
 
     def execute(self, args):
-        self.display_history()
+        if args and args[0] == "-c":
+            self._clear_history()
+        else:
+            self.display_history()
 
     def add_command(self, command):
         if command.strip():
@@ -30,5 +33,13 @@ class HistoryCommand(BaseCommand):
         with open(histfile, "w") as f:
             f.write("\n".join(self.history))
 
+    def _clear_history(self):
+        self.history = []
+        self._save_history()
+        print("History cleared")
+
     def help(self):
-        return "history --> Displays the list of previously executed commands"
+        return (
+            "history [-c] --> Displays the list of previously executed commands\n"
+            "-c: Clears the history"
+        )
