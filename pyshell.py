@@ -41,10 +41,10 @@ class PyShell:
                 else:
                     print(f"Command not found: {command_name}")
             except KeyboardInterrupt:
-                print("\nExiting PyShell...")
+                print("Exiting PyShell...")
                 break
             except EOFError:
-                print("\nReceived EOF. Exiting PyShell...")
+                print("Received EOF. Exiting PyShell...")
                 break
             except Exception as e:
                 print(f"Error: {e}")
