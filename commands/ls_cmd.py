@@ -9,7 +9,14 @@ class LsCommand(BaseCommand):
 
         try:
             contents = os.listdir(path)
-            visible_contents = [item for item in contents if not item.startswith(".")]
+            visible_contents = []
+            for item in contents:
+                if not item.startswith("."):
+                    full_path = os.path.join(path, item)
+                    if os.path.isdir(full_path):
+                        visible_contents.append(f"[dir]{item}")
+                    else:
+                        visible_contents.append(item)
             self.print_multi_line(visible_contents)
         except FileNotFoundError:
             print(f"Directory not found: {path}")
