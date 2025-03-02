@@ -1,5 +1,3 @@
 # add new commands automatically into the dictionary
-# implement cd
 # implement too many arguments
 # implement special chars '-' & '--'
-# make directories stand out when ls-ing

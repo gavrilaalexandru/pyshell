@@ -20,4 +20,7 @@ class CdCommand(BaseCommand):
             print(f"Unknown error: {e}")
 
     def help(self):
-        return "cd [path] --> Changes the current directory"
+        return (
+            "cd [path] --> Changes the current directory\n"
+            "If no path is provided, changes to the home directory"
+        )
