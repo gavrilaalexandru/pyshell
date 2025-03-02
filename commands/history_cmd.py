@@ -1,4 +1,5 @@
 from commands.ibase_cmd import BaseCommand
+from utils.readline_util import _clear_readline_history
 import os
 
 
@@ -36,6 +37,7 @@ class HistoryCommand(BaseCommand):
     def _clear_history(self):
         self.history = []
         self._save_history()
+        _clear_readline_history()
         print("History cleared")
 
     def help(self):

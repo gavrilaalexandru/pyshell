@@ -7,6 +7,7 @@ from commands.pwd_cmd import PwdCommand
 from commands.clear_cmd import ClearCommand
 from commands.history_cmd import HistoryCommand
 from utils.parser import parser_cmd
+from utils.readline_util import _load_readline_history
 
 
 class PyShell:
@@ -20,6 +21,7 @@ class PyShell:
             "history": HistoryCommand(),
         }
         self.history_cmd = self.commands["history"]
+        _load_readline_history()
 
     def run(self):
         while True:

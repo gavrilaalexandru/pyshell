@@ -1,1 +1,3 @@
 # Dependencies go here
+
+pip install pyreadline3 # for windows users; the import remains the same
