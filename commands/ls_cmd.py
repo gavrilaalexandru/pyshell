@@ -14,7 +14,7 @@ class LsCommand(BaseCommand):
                 if not item.startswith("."):
                     full_path = os.path.join(path, item)
                     if os.path.isdir(full_path):
-                        visible_contents.append(f"[dir]{item}")
+                        visible_contents.append(f"\033[0;32m{item}\033[0m")
                     else:
                         visible_contents.append(item)
             self.print_multi_line(visible_contents)
