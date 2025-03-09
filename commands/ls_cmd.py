@@ -26,7 +26,10 @@ class LsCommand(BaseCommand):
             print(f"Unknown error: {e}")
 
     def help(self):
-        return "ls [path] --> Lists the contents of the specified directory/current directory"
+        return (
+            "ls [path] --> Lists the contents of the specified directory/current directory\n"
+            "Directories are displayed in green for better visibility."
+        )
 
     def print_multi_line(self, contents):
 
