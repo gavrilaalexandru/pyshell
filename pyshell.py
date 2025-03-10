@@ -9,6 +9,7 @@ from commands.history_cmd import HistoryCommand
 from commands.cd_cmd import CdCommand
 from utils.parser import parser_cmd
 from utils.readline_util import _load_readline_history
+import os
 
 
 class PyShell:
@@ -28,7 +29,8 @@ class PyShell:
     def run(self):
         while True:
             try:
-                user_input = input("pyshell> ").strip()
+                current_dir = os.getcwd()
+                user_input = input(f"pyshell [{current_dir}]> ").strip()
                 if not user_input:
                     continue
 
