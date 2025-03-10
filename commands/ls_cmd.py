@@ -5,6 +5,8 @@ from commands.ibase_cmd import BaseCommand
 
 class LsCommand(BaseCommand):
     def execute(self, args):
+        if not self.validate_args(args, expected_args=1):
+            return
         path = args[0] if args else "."
 
         try:
