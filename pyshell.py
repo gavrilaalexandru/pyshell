@@ -41,7 +41,7 @@ class PyShell:
                 elif command_name == "exit":
                     break
                 else:
-                    print(f"Command not found: {command_name}")
+                    print(f"\033[31mCommand not found: {command_name}\033[0m")
             except KeyboardInterrupt:
                 print("Exiting PyShell...")
                 break
