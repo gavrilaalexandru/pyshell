@@ -20,5 +20,16 @@ class BaseCommand(metaclass=MetaCommand):
     def execute(self, args):
         raise NotImplementedError("Subclasses must implement this method")
 
+    def validate_args(self, args, expected_args=0):
+        if len(args) != expected_args:
+            cmd_name = self.__class__.__name__.replace("Command", "").lower()
+            print(
+                f"{cmd_name}: too many arguments"
+                if len(args) > expected_args
+                else f"{cmd_name}: missing arguments"
+            )
+            return False
+        return True
+
     def help(self) -> str:
         return "No help available for this command"
