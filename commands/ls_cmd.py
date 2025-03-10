@@ -7,7 +7,7 @@ class LsCommand(BaseCommand):
     def execute(self, args):
         if not self.validate_args(args, expected_args=1):
             return
-        path = args[0] if args else "."
+        path = os.path.expanduser(args[0]) if args else "."
 
         try:
             contents = os.listdir(path)

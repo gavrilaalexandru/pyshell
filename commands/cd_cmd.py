@@ -4,10 +4,12 @@ from commands.ibase_cmd import BaseCommand
 
 class CdCommand(BaseCommand):
     def execute(self, args):
+        if not self.validate_args(args, expected_args=1):
+            return
         if not args:
             new_dir = os.path.expanduser("~")
         else:
-            new_dir = args[0]
+            new_dir = os.path.expanduser(args[0])
 
         try:
             os.chdir(new_dir)
